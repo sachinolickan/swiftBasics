@@ -429,9 +429,47 @@ swapTwoInts(&someInt, &anotherInt)
 print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
 // Prints "someInt is now 107, and anotherInt is now 3"
 //Just initial commit
+print("Hellow \(2+3) world")
+
+var a = 5
+var b = 8
+var temporaryA = 5
+a = b
+b = temporaryA
+print ("the value of A is \(a)")
+print ("the vale of B is \(b)")
+
+//Multiply elementt in an array
+var numbers = [ 32,1112,42,24]
+
+func mutiplyArray(numberArray: [Int]) -> [Int] {
+    var computedNumbers:[Int] = []
+    for (index,_) in numbers.enumerated(){
+        if(index < numbers.count-1){
+            computedNumbers.append(numbers[index] * numbers[index+1])
+        }else{
+            computedNumbers.append( numbers[index] * numbers[0])
+        }
+    }
+    return computedNumbers
+}
+print(mutiplyArray(numberArray:numbers))
 
 
+//Random password Generator
+let aScalars = "a".unicodeScalars
+let aCode = aScalars[aScalars.startIndex].value
+let charcters: [Character] = (0..<26).map {
+    i in Character(UnicodeScalar(aCode + i)!)
+}
 
-
-
+func generatePassword(charArray: [Character])-> String {
+    var passwordArray:[Character]=[]
+    for _ in 1...6{
+        passwordArray.append(charcters.randomElement()!)
+    }
+    let password = String(passwordArray)
+    return password
+}
+print(generatePassword(charArray:charcters))
 
